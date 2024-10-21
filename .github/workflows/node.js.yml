@@ -31,8 +31,8 @@ jobs:
         with:
           node-version: '12.x'
       - run: |
-          yarn install
-          yarn run build
+          npm install
+          npm run build
         working-directory: ./docs
           
       # 部署到 GitHub pages

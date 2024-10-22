@@ -16,25 +16,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 生成路由
-      - name: Build routers
+      # 下载依赖并编译打包
+      - name: Install Dependences And Build
         uses: actions/setup-node@master
         with:
           node-version: '12.x'
-      - run: |
-          yarn install
-          yarn run doc:build
-
-      # 打包文档
-      - name: Build docs
-        uses: actions/setup-node@master
-        with:
-          node-version: '12.x'
-      - run: |
-          npm install
-          npm run build
+      - run: yarn install
+        working-directory: .
+      - run: yarn install
         working-directory: ./docs
-          
+      - run: yarn run doc:build
+        working-directory: .
+      - run: yarn run build
+        working-directory: ./docs
+
       # 部署到 GitHub pages
       - name: Deploy to GitHub Pages
         uses: Cecilapp/GitHub-Pages-deploy@v3

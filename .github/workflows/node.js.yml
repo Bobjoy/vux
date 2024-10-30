@@ -25,23 +25,22 @@ jobs:
         working-directory: .
       - run: yarn install
         working-directory: ./docs
-      - run: yarn run doc:build
-        working-directory: .
-      - run: yarn run gen
-        working-directory: ./docs
+      - run: |
+          yarn run doc:build
+          cd docs
+          yarn run gen
+          mkdir dist
+          mv .ream/dist dist/doc
+          mv demos/v2 dist/demos
 
-      # 发布文档
-      - name: Push Doc
-        uses: peaceiris/actions-gh-pages@v4
+      # 部署到 GitHub pages
+      - name: Deploy to GitHub Pages
+        uses: Cecilapp/GitHub-Pages-deploy@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: pages-doc
-          publish_dir: docs/.ream/dist
-
-      # 发布示例
-      - name: Push Demos
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: pages-demos
-          publish_dir: docs/demos/v2
+          email: bobjoy1010@qq.com
+          build_dir: docs/.ream/dist
+          branch: gh-pages
+          jekyll: no
+          commit_message: Vux Docs Deploy Success

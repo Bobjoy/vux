@@ -432,9 +432,9 @@ export default {
       })
     }
 
-    let url = `https://vux-demos.bobjoy.eu.org/v2/#/component/${componentName}`
+    let url = `https://vux-demos.bobjoy.eu.org/#/component/${componentName}`
     if (demos.length) {
-      url = `https://vux-demos.bobjoy.eu.org/v2/#/components/${componentName}/home`
+      url = `https://vux-demos.bobjoy.eu.org/#/components/${componentName}/home`
     }
 
     // toc
@@ -550,7 +550,7 @@ export default {
 
 
     let _globalImportCode = `// ${t('globally register', lang)}\n\nimport Vue from 'vue'\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'\n\n`
-    const urlWithNoTransition = `https://vux-demos.bobjoy.eu.org/v2?locale=${lang}&transition=none/#/component/${componentName}`
+    const urlWithNoTransition = `https://vux-demos.bobjoy.eu.org?locale=${lang}&transition=none/#/component/${componentName}`
 
     importList.forEach(one => {
       _globalImportCode += `Vue.component('${one.componentName}', ${one.importName})\n`
@@ -981,7 +981,7 @@ export default {
 
   const domainMap = {
     'development': 'http://localhost:8080/',
-    'production': 'https://vux-demos.bobjoy.eu.org/v2/'
+    'production': 'https://vux-demos.bobjoy.eu.org/'
   }
 
   export default {

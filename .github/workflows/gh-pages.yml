@@ -32,8 +32,7 @@ jobs:
           yarn run gen
           mkdir dist
           mv .ream/dist dist/doc
-          rm -rf demos/temp
-          mv demos dist/demos
+          mv demos/v2 dist/demos
 
       # 部署到 GitHub pages
       - name: Deploy to GitHub Pages

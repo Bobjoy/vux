@@ -6,11 +6,11 @@
 <p align="center">Be Cool with Vue@^2.3.0 and WeUI.</p>
 
 <p align="center">
-  <a href="https://vux-demos.bobjoy.eu.org/v2?x-page=github">
+  <a href="https://vux-demos.bobjoy.eu.org?x-page=github">
     <img src="https://static.vux.li/demo_v2_doc_home.png" width="100" alt="">
   </a>
   <br>
-  <a href="https://vux-demos.bobjoy.eu.org/v2?x-page=github">
+  <a href="https://vux-demos.bobjoy.eu.org?x-page=github">
     Live Demo >>
   </a>
   <br>

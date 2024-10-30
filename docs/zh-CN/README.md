@@ -4,11 +4,11 @@ title: 关于 VUX
 
 <p align="center">
   <br>
-   <a href="https://vux-demos.bobjoy.eu.org/v2?x-page=v2-doc-home">
+   <a href="https://vux-demos.bobjoy.eu.org?x-page=v2-doc-home">
     <img src="https://img.picui.cn/free/2024/10/30/6721eec153bd7.png" width="100" alt="">
   </a>
   <br>
-  <a href="https://vux-demos.bobjoy.eu.org/v2?x-page=v2-doc-home">
+  <a href="https://vux-demos.bobjoy.eu.org?x-page=v2-doc-home">
     预览地址>>
   </a>
   <br>

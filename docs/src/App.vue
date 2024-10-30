@@ -114,9 +114,9 @@
           <li class="nav-item">
             <router-link :to="`/${lang}/changelog/changelog.html`" :class="/changelog/.test($route.path) ? 'link-active' : ''">{{ t('Releases') }}</router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link :to="`/${lang}/contribution/donate.html`" :class="/donate/.test($route.path) ? 'link-active' : ''">{{ t('Donate') }}</router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
             <router-link :to="`/${lang}/lab/index.html`" :class="/lab/.test($route.path) ? 'link-active' : ''">{{ t('Lab') }}</router-link>
           </li>
@@ -263,7 +263,7 @@ export default {
       if (this.$route.path.indexOf('/zh-CN/') !== -1) {
         return 'zh-CN'
       }
-      return 'en'
+      return 'zh-CN'
     }
   },
   computed: {

@@ -16,20 +16,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 打包
-      - name: Build routers
+      # 下载依赖并编译打包
+      - name: Install Dependences And Build
         uses: actions/setup-node@master
         with:
           node-version: '12.x'
-      - run: |
-          echo $PWD
-          yarn install
-          yarn run doc:build
-      - run: |
-          cd docs/
-          echo $PWD
-          yarn install
-          yarn run gen
+      - run: yarn install
+        working-directory: .
+      - run: yarn install
+        working-directory: ./docs
+      - run: yarn run doc:build
+        working-directory: .
+      - run: yarn run gen
+        working-directory: ./docs
 
       # 发布文档
       - name: Push Doc

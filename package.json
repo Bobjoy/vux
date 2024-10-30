@@ -35,7 +35,7 @@
     "build-components": "node build/build-components.js",
     "build-styles": "node build/build-styles.js",
     "xbuild": "npm run build-styles && npm run build-components",
-    "build:all": "npm run build-main && npm run xbuild && npm run build:demo && npm run build:demo && npm run doc:build"
+    "build:all": "npm run build:demo && npm run build:demo && npm run doc:build"
   },
   "dependencies": {
     "@antv/f2": "^3.1.4-beta.2",

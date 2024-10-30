@@ -261,9 +261,9 @@ langs.forEach(lang => {
     path: '/${lang}/about/contributors.html',
     component: () => import('../${lang}/about/contributors.vue')
   })`
-  paths.push('/${lang}/')
-  paths.push('/${lang}/faq/')
-  paths.push('/${lang}/about/contributors.html')
+  paths.push(`/${lang}/`)
+  paths.push(`/${lang}/faq/`)
+  paths.push(`/${lang}/about/contributors.html`)
 })
 
 files.forEach(file => {
@@ -430,9 +430,9 @@ export default {
       })
     }
 
-    let url = `https://vux.li/demos/v2/#/component/${componentName}`
+    let url = `https://vux.bobjoy.eu.org/demos/v2/#/component/${componentName}`
     if (demos.length) {
-      url = `https://vux.li/demos/v2/#/components/${componentName}/home`
+      url = `https://vux.bobjoy.eu.org/demos/v2/#/components/${componentName}/home`
     }
 
     // toc
@@ -548,7 +548,7 @@ export default {
 
 
     let _globalImportCode = `// ${t('globally register', lang)}\n\nimport Vue from 'vue'\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'\n\n`
-    const urlWithNoTransition = `https://vux.li/demos/v2?locale=${lang}&transition=none/#/component/${componentName}`
+    const urlWithNoTransition = `https://vux.bobjoy.eu.org/demos/v2?locale=${lang}&transition=none/#/component/${componentName}`
 
     importList.forEach(one => {
       _globalImportCode += `Vue.component('${one.componentName}', ${one.importName})\n`
@@ -741,7 +741,7 @@ export default {
                   </td>
                   <td v-html="getTypeHTML(prop.type)"></td>
                   <td>{{ prop.default}}</td>
-                  <td v-html="prop['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
+                  <td v-html="prop['${lang}'] ? prop['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
                   <td>{{ prop.version || '--'}}</td>
                 </tr>
               </tbody>
@@ -824,7 +824,7 @@ export default {
                     </el-tooltip>
                   </td>
                   <td v-html="method['params'] ? method['params'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
-                  <td v-html="method['${lang}'].replace(/${parseReg}/g, '<code>$1</code>')"></td>
+                  <td v-html="method['${lang}'] ? method['${lang}'].replace(/${parseReg}/g, '<code>$1</code>') : ''"></td>
                   <td>{{ method['version'] }}</td>
                 </tr>
               </tbody>
@@ -979,7 +979,7 @@ export default {
 
   const domainMap = {
     'development': 'http://localhost:8080/',
-    'production': 'https://vux.li/demos/v2/'
+    'production': 'https://vux.baofl.eu.org/demos/v2/'
   }
 
   export default {

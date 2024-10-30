@@ -149,7 +149,7 @@ function getComponentName(path) {
   }
 }
 
-let paths = []
+let paths = ['/index.html']
 
 langs.forEach(lang => {
   const faqs = glob.sync(getPath(`./${lang}/faq/*.md`))
@@ -1162,7 +1162,7 @@ routes.push({
 const ori = fs.readFileSync(getPath('./src/index.js'), 'utf-8')
 fs.writeFileSync(getPath('./src/_index.js'), ori.replace('const routes = []', `const routes = []\n${str}`))
 fs.writeFileSync(getPath('./src/routes.json'), JSON.stringify(paths, null, 2))
-fs.writeFileSync(getPath('./sitemap.txt'), paths.map(path => `https://doc.vux.li${path}`).join('\n'))
+fs.writeFileSync(getPath('./sitemap.txt'), paths.map(path => `https://vux.bobjoy.eu.org${path}`).join('\n'))
 
 fs.writeFileSync(getPath('./algolia.json'), JSON.stringify(contents, null, 2))
 

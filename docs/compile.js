@@ -67,7 +67,7 @@ variableContent.forEach((line, index) => {
     }
 
     variables[component].push({
-      name, 
+      name,
       value,
       is_inherited,
       inherited_name,
@@ -241,7 +241,12 @@ if (include) {
   })
 }
 
-let str = ''
+let str = `
+routes.push({
+  path: '/',
+  redirect: '/zh-CN/'
+})
+`
 
 langs.forEach(lang => {
   str += `
@@ -261,9 +266,6 @@ langs.forEach(lang => {
     path: '/${lang}/about/contributors.html',
     component: () => import('../${lang}/about/contributors.vue')
   })`
-  paths.push(`/${lang}/`)
-  paths.push(`/${lang}/faq/`)
-  paths.push(`/${lang}/about/contributors.html`)
 })
 
 files.forEach(file => {
@@ -430,9 +432,9 @@ export default {
       })
     }
 
-    let url = `https://vux.bobjoy.eu.org/demos/v2/#/component/${componentName}`
+    let url = `https://vux-demos.bobjoy.eu.org/v2/#/component/${componentName}`
     if (demos.length) {
-      url = `https://vux.bobjoy.eu.org/demos/v2/#/components/${componentName}/home`
+      url = `https://vux-demos.bobjoy.eu.org/v2/#/components/${componentName}/home`
     }
 
     // toc
@@ -548,7 +550,7 @@ export default {
 
 
     let _globalImportCode = `// ${t('globally register', lang)}\n\nimport Vue from 'vue'\nimport { ${importList.map(one => one.importName).join(', ')} } from 'vux'\n\n`
-    const urlWithNoTransition = `https://vux.bobjoy.eu.org/demos/v2?locale=${lang}&transition=none/#/component/${componentName}`
+    const urlWithNoTransition = `https://vux-demos.bobjoy.eu.org/v2?locale=${lang}&transition=none/#/component/${componentName}`
 
     importList.forEach(one => {
       _globalImportCode += `Vue.component('${one.componentName}', ${one.importName})\n`
@@ -606,7 +608,7 @@ export default {
             </li>
           </ul>
         </div>
-      
+
         <template v-if="needImport">
           <a class="anchor" id="install">Install</a>
           <h2>${t('Install', lang)}</h2>
@@ -635,9 +637,9 @@ export default {
                   </span>
                 </el-tooltip>
                 ${globalImportCode}
-              </div> 
+              </div>
             </el-tab-pane>
-          </el-tabs>   
+          </el-tabs>
         </template>
 
         <template v-else>
@@ -649,7 +651,7 @@ export default {
         <div class="tip" style="width:600px;" v-if="metas.tip">
           ${ metas.tip ? metas.tip.replace(/`(.*?)`/g, '<code>$1</code>') : '' }
         </div>
-      
+
         <h2 v-if="metas.example">${t('example', lang)}</h2>
         <div v-if="metas.example" style="width:600px;">
           ${exampleCode}
@@ -662,7 +664,7 @@ export default {
       <div v-if="metas.extra && !metas.extra['${lang}']">
         ${ metas.extra && !metas.extra[lang] && typeof metas.extra === 'string' ? md.render(metas.extra || '<div></div>') : '' }
       </div>
-      
+
       <a v-if="demos.length" class="anchor" id="examples">Examples</a>
       <br/>
       <template v-if="demos.length" v-for="demo in demos">
@@ -713,7 +715,7 @@ export default {
           <h2
             v-show="componentList.length > 1"
             class="vux-component-name-sub-item">{{ component.name }}</h2>
-            
+
           <template v-if="component.meta.items && component.meta.description">
             <div v-html="component.meta.description"></div>
           </template>
@@ -775,7 +777,7 @@ export default {
               </tbody>
             </table>
           </template>
-      
+
 
           <template v-if="component.meta.slots">
             <h2>${t('Slots', lang)}</h2>
@@ -802,7 +804,7 @@ export default {
               </tbody>
             </table>
           </template>
-          
+
           <template v-if="component.meta.methods">
             <h2>${t('Functions', lang)}</h2>
             <table>
@@ -868,7 +870,7 @@ export default {
               </tbody>
             </table>
           </template>
-      
+
           <template v-if="component.meta.tips && component.meta.tips['${lang}']">
             <a class="anchor" id="tips">${t('Tips', lang)}</a>
             <br>
@@ -888,7 +890,7 @@ export default {
       <!--<h2>社区相关讨论</h2>
       [即将上线]
       -->
-    
+
       <br>
       <div v-if="issues.length">
         <a class="anchor" id="Issues">Issues</a>
@@ -899,7 +901,7 @@ export default {
         </ul>
       </div>
       <br>
-    
+
       <div v-if="gitMetas">
         <a class="anchor" id="contributors">${t('Contributors', lang)}</a>
         <h2>${t('Contributors', lang)}</h2>
@@ -979,7 +981,7 @@ export default {
 
   const domainMap = {
     'development': 'http://localhost:8080/',
-    'production': 'https://vux.baofl.eu.org/demos/v2/'
+    'production': 'https://vux-demos.bobjoy.eu.org/v2/'
   }
 
   export default {
@@ -1162,7 +1164,7 @@ routes.push({
 const ori = fs.readFileSync(getPath('./src/index.js'), 'utf-8')
 fs.writeFileSync(getPath('./src/_index.js'), ori.replace('const routes = []', `const routes = []\n${str}`))
 fs.writeFileSync(getPath('./src/routes.json'), JSON.stringify(paths, null, 2))
-fs.writeFileSync(getPath('./sitemap.txt'), paths.map(path => `https://vux.bobjoy.eu.org${path}`).join('\n'))
+fs.writeFileSync(getPath('./sitemap.txt'), paths.map(path => `https://vux-doc.bobjoy.eu.org${path}`).join('\n'))
 
 fs.writeFileSync(getPath('./algolia.json'), JSON.stringify(contents, null, 2))
 

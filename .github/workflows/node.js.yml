@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Deploy Vux Docs
+name: Deploy Vux Doc And Demos
 
 on:
   push:
@@ -10,36 +10,39 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       # 下载源码
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 下载依赖并编译打包
-      - name: Install Dependences And Build
+      # 打包
+      - name: Build routers
         uses: actions/setup-node@master
         with:
           node-version: '12.x'
-      - run: yarn install
-        working-directory: .
-      - run: yarn install
-        working-directory: ./docs
-      - run: yarn run doc:build
-        working-directory: .
-      - run: yarn run gen
-        working-directory: ./docs
+      - run: |
+          echo $PWD
+          yarn install
+          yarn run doc:build
+      - run: |
+          cd docs/
+          echo $PWD
+          yarn install
+          yarn run gen
 
-      # 部署到 GitHub pages
-      - name: Deploy to GitHub Pages
-        uses: Cecilapp/GitHub-Pages-deploy@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # 发布文档
+      - name: Push Doc
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          email: bobjoy1010@qq.com
-          build_dir: docs/.ream/dist
-          branch: docs
-          cname: vux.bobjoy.eu.org
-          jekyll: no
-          commit_message: Vux Docs Deploy Success
-        
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: pages-doc
+          publish_dir: docs/.ream/dist
+
+      # 发布示例
+      - name: Push Demos
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: pages-demos
+          publish_dir: docs/demos

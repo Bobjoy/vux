@@ -383,7 +383,7 @@ nav: ${lang}
 
       docs += `\n<span style="color: #999;font-size:12px;"><a href="https://github.com/airyland/vux/blob/v2/src/components/${one.name}/metas.yml" target="_blank">${t('编辑文档', lang)}</a></span>`
       docs += `\n&nbsp;&nbsp;<span style="color: #999;font-size:12px;"><a href="#" router-link="/zh-CN/demos/${(one.name || name).replace('-item', '')}">${t("进入demo页面", lang)}</a></span>`
-      docs += `\n&nbsp;&nbsp;<span style="color: #999;font-size:12px;"><a href="https://vux.li/demos/v2/#/component/${one.name}" target="_blank">${t("demo 原始链接", lang)}</a></span>`
+      docs += `\n&nbsp;&nbsp;<span style="color: #999;font-size:12px;"><a href="https://vux-demos.bobjoy.eu.org/v2/#/component/${one.name}" target="_blank">${t("demo 原始链接", lang)}</a></span>`
       docs += `\n&nbsp;&nbsp;<span style="color: #999;font-size:12px;"><a href="https://github.com/airyland/vux/blob/v2/src/demos/${one.importName}.vue" target="_blank">${t("demo源码", lang)}</a></span>\n`
 
       if (one.status === 'deprecated') {

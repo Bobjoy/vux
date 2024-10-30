@@ -24,7 +24,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --host 0.0.0.0 --inline --progress --config build/webpack.dev.conf.js",
-    "build": "node build/build.js && rimraf docs/demos/v2/ && mkdirp docs/demos/v2 && cp -r docs/demos/temp/* docs/demos/v2/",
+    "build:doc": "node build/build.js && rimraf docs/demos/v2/ && mkdirp docs/demos/v2 && cp -r docs/demos/temp/* docs/demos/v2/",
     "build:cdn": "node build/build.js --cdn && rimraf docs/demos/v2/ && mkdirp docs/demos/v2 && cp -rf docs/demos/temp/* docs/demos/v2/",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
@@ -34,7 +34,8 @@
     "build-main": "node build/build-main.js",
     "build-components": "node build/build-components.js",
     "build-styles": "node build/build-styles.js",
-    "xbuild": "npm run build-styles && npm run build-components"
+    "xbuild": "npm run build-styles && npm run build-components",
+    "build:all": "npm run xbuild && npm run build-main && npm run doc:build"
   },
   "dependencies": {
     "@antv/f2": "^3.1.4-beta.2",

@@ -5,7 +5,7 @@ title: 关于 VUX
 <p align="center">
   <br>
    <a href="https://vux-demos.bobjoy.eu.org?x-page=v2-doc-home">
-    <img src="https://ws1.sinaimg.cn/large/663d3650gy1fq670tkjoij207s07sq2p.jpg" width="100" alt="">
+    <img src="https://i.loli.net/2017/11/20/5a12187ebf2e0.png" width="100" alt="">
   </a>
   <br>
   <a href="https://vux-demos.bobjoy.eu.org?x-page=v2-doc-home">

@@ -26,8 +26,8 @@ jobs:
       - run: yarn install
         working-directory: ./docs
       - run: |
-          yarn run doc:build
-          yarn run build:cdn
+          yarn run build:all
+          yarn run build:doc
           cd docs
           yarn run gen
           mkdir dist

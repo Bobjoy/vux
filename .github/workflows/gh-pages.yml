@@ -31,7 +31,7 @@ jobs:
           yarn run gen
           mkdir dist
           mv .ream/dist dist/doc
-          mv demos/v2 dist/demos
+          mv demos dist/demos
 
       # 部署到 GitHub pages
       - name: Deploy to GitHub Pages
@@ -40,7 +40,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           email: bobjoy1010@qq.com
-          build_dir: docs/.ream/dist
+          build_dir: docs/dist
           branch: gh-pages
           jekyll: no
           commit_message: Vux Docs Deploy Success

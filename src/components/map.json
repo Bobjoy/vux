@@ -97,7 +97,6 @@
   "PopupHeader": "src/components/popup-header/index.vue",
   "PopupPicker": "src/components/popup-picker/index.vue",
   "PopupRadio": "src/components/popup-radio/index.vue",
-  "Preview": "src/components/uploader/preview.vue",
   "Previewer": "src/components/previewer/index.vue",
   "Qrcode": "src/components/qrcode/index.vue",
   "querystring": "src/tools/querystring/index.js",

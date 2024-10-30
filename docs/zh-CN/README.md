@@ -5,7 +5,7 @@ title: 关于 VUX
 <p align="center">
   <br>
    <a href="https://vux-demos.bobjoy.eu.org/v2?x-page=v2-doc-home">
-    <img src="https://ws1.sinaimg.cn/large/663d3650gy1fq670tkjoij207s07sq2p.jpg" width="100" alt="">
+    <img src="https://img.picui.cn/free/2024/10/30/6721eec153bd7.png" width="100" alt="">
   </a>
   <br>
   <a href="https://vux-demos.bobjoy.eu.org/v2?x-page=v2-doc-home">
@@ -50,23 +50,6 @@ title: 关于 VUX
   <br>
 </p>
 
-<p class="best-companies">
-  <a href="https://www.upyun.com" target="_blank">
-    <img src="https://ww1.sinaimg.cn/large/663d3650gy1fs3l83hokej20b4040weg.jpg" style="height:52px;"/>
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://werss.app?utm_source=vux-doc">
-    <img src="https://cdn.weapp.design/werss/werss-logo.png" width="250">
-  </a>
-  <br>
-  <br>
-  <a href="https://www.sb/?utm_source=vux">
-    <img src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1ftmvim3r34j3056034wee.jpg" height="90">
-  </a>
-</p>
-
 ::: warning
   VUX 必须配合 `vux-loader` 使用，请按照[https://github.com/airyland/vux/tree/v2/packages/vue-cli-3-example](https://github.com/airyland/vux/tree/v2/packages/vue-cli-3-example)配置。<br>
 
@@ -90,12 +73,6 @@ title: 关于 VUX
 VUX 并不是一个能解决所有场景的完美解决方案(实际上也没有一个方案能解决所有问题)，也会出现某些`bug`或者某些特性不支持，所以如果遇到问题麻烦及时**不带情绪正确反馈**，**我们乐于及时解决描述详细方便重现的问题**。<br>
 即使你不直接使用 `VUX` 组件代码, 你依然可以参考 VUX 代码来实现自己的组件库。如果一定程度上帮助到了你，那么维护这个项目也就有所意义。
 :::
-
-## 订阅版本发布通知
-
-请使用微信扫描
-
-<img src="https://ws1.sinaimg.cn/large/663d3650gy1fpno3msj6wj20dw0dw748.jpg" width="150">
 
 ## 提示
 ::: tip

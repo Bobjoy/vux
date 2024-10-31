@@ -95,7 +95,7 @@ export const parse = function (str, sep, eq) {
 
   var pairs = str.split(sep || '&');
   eq = eq || '=';
-  var unescape = unescape;
+  // var unescape = unescape;
 
   for (var i = 0; i < pairs.length; i++) {
 
